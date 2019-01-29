@@ -23,9 +23,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private BottomSheetDialog sheetDialog;
 
-    ImageView dialog_img;
-    TextView dialog_phone;
-    TextView dialog_name;
+    private ImageView dialog_img;
+    private TextView dialog_phone;
+    private TextView dialog_name;
 
     RecyclerViewAdapter(List<Contact> mContactList, Context context) {
         this.mContactList = mContactList;

@@ -19,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
+        init();
+    }
+
+    private void init() {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         final ViewPager viewPager = findViewById(R.id.pager);
 
@@ -30,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.ic_star);
         Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.ic_recent);
         Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.ic_contacts);
-
 
         PhoneAdapter phoneAdapter = new PhoneAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(phoneAdapter);

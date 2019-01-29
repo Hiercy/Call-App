@@ -41,21 +41,30 @@ public class ContactFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mContacts = new ArrayList<>();
+        populateData();
+    }
 
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
-        mContacts.add(new Contact("Mike", "+123456789"));
+    private void populateData() {
+        new Thread("Init Data") {
+            @Override
+            public void run() {
+                mContacts = new ArrayList<>();
+
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+                mContacts.add(new Contact("Mike", "+123456789"));
+            }
+        }.start();
     }
 }
