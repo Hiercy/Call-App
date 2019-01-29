@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Call Phone</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="contact_phone">Contact Phone</string>
+    <string name="contact_name">Contact Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="call">Call</string>
+</resources>
