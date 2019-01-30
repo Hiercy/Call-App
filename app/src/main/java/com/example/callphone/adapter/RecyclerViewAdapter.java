@@ -1,4 +1,4 @@
-package com.example.callphone;
+package com.example.callphone.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,11 +12,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.callphone.BottomSheet;
+import com.example.callphone.R;
 import com.example.callphone.dao.Contact;
 
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> implements BottomSheet {
 
     private List<Contact> mContactList;
     private Context mContext;
@@ -27,7 +29,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private TextView dialog_phone;
     private TextView dialog_name;
 
-    RecyclerViewAdapter(List<Contact> mContactList, Context context) {
+    public RecyclerViewAdapter(List<Contact> mContactList, Context context) {
         this.mContactList = mContactList;
         this.mContext = context;
     }
@@ -35,18 +37,32 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         View view = LayoutInflater.from(mContext).inflate(R.layout.item_contacts, viewGroup, false);
         final ViewHolder viewHolder = new ViewHolder(view);
 
-        initBottomSheet(mContext, viewHolder);
+        sheetDialog = new BottomSheetDialog(mContext);
+        sheetDialog.setContentView(R.layout.contact_card);
 
-        clickItem(viewHolder);
+        clickItem(viewHolder, sheetDialog);
 
         return viewHolder;
     }
 
-    private void clickItem(final ViewHolder viewHolder) {
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+        final Contact contact = mContactList.get(position);
+
+        viewHolder.bindTo(contact);
+    }
+
+    @Override
+    public int getItemCount() {
+        return mContactList.size();
+    }
+
+    @Override
+    public void clickItem(RecyclerView.ViewHolder view, BottomSheetDialog bottomSheetDialog) {
+        final ViewHolder viewHolder = (ViewHolder) view;
         viewHolder.mImageViewPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,23 +87,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 sheetDialog.show();
             }
         });
-    }
-
-    private void initBottomSheet(Context context, ViewHolder viewHolder) {
-        sheetDialog = new BottomSheetDialog(context);
-        sheetDialog.setContentView(R.layout.contact_card);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        final Contact contact = mContactList.get(position);
-
-        viewHolder.bindTo(contact);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mContactList.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

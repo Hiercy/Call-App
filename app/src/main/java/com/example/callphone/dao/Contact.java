@@ -6,11 +6,21 @@ public class Contact {
     private String phone;
     private int image;
 
-    public Contact() {}
+    public Contact() {
+    }
+
+    public Contact(String name) {
+        this.name = name;
+    }
 
     public Contact(String name, String phone) {
         this.name = name;
         this.phone = phone;
+    }
+
+    public Contact(int image, String name) {
+        this.image = image;
+        this.name = name;
     }
 
     public Contact(String name, String phone, int image) {

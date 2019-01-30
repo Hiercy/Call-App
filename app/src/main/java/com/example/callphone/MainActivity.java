@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+
+import com.example.callphone.adapter.PhoneAdapter;
 
 import java.util.Objects;
 
@@ -14,10 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-
-        setSupportActionBar(toolbar);
 
         init();
     }
@@ -31,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Contacts"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        Objects.requireNonNull(tabLayout.getTabAt(0)).setIcon(R.drawable.ic_star);
-        Objects.requireNonNull(tabLayout.getTabAt(1)).setIcon(R.drawable.ic_recent);
-        Objects.requireNonNull(tabLayout.getTabAt(2)).setIcon(R.drawable.ic_contacts);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_star);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_recent);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_contacts);
 
         PhoneAdapter phoneAdapter = new PhoneAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(phoneAdapter);
