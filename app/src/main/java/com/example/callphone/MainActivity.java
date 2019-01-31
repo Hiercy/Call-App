@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.callphone.adapter.PhoneAdapter;
 
-import java.util.Objects;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.callphone.BottomSheet;
 import com.example.callphone.R;
-import com.example.callphone.dao.Contact;
+import com.example.callphone.model.Contact;
 
 import java.util.ArrayList;
 import java.util.Objects;

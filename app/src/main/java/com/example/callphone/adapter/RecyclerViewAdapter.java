@@ -1,5 +1,6 @@
 package com.example.callphone.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
@@ -14,11 +15,13 @@ import android.widget.Toast;
 
 import com.example.callphone.BottomSheet;
 import com.example.callphone.R;
-import com.example.callphone.dao.Contact;
+import com.example.callphone.model.Contact;
+import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
 
 import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> implements BottomSheet {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>
+        implements BottomSheet, FastScrollRecyclerView.SectionedAdapter {
 
     private List<Contact> mContactList;
     private Context mContext;
@@ -87,6 +90,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 sheetDialog.show();
             }
         });
+    }
+
+    @SuppressLint("DefaultLocale")
+    @NonNull
+    @Override
+    public String getSectionName(int position) {
+        return String.format("%d", position + 1);
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

@@ -11,7 +11,8 @@ import android.view.ViewGroup;
 
 import com.example.callphone.R;
 import com.example.callphone.adapter.RecyclerViewAdapter;
-import com.example.callphone.dao.Contact;
+import com.example.callphone.model.Contact;
+import com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -30,12 +31,12 @@ public class ContactFragment extends Fragment {
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
-        RecyclerView mRecyclerView = view.findViewById(R.id.rv_contact);
+        FastScrollRecyclerView fastScrollRecyclerView = view.findViewById(R.id.rv_contact);
 
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(mContacts, getContext());
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mRecyclerView.setAdapter(recyclerViewAdapter);
+        fastScrollRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        fastScrollRecyclerView.setAdapter(recyclerViewAdapter);
 
         return view;
     }

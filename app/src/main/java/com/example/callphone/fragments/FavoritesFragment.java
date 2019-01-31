@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.callphone.R;
 import com.example.callphone.adapter.FavoritesAdapter;
-import com.example.callphone.dao.Contact;
+import com.example.callphone.model.Contact;
 
 import java.util.ArrayList;
 

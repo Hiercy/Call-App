@@ -1,4 +1,4 @@
-package com.example.callphone.dao;
+package com.example.callphone.model;
 
 public class Contact {
 
@@ -52,4 +52,5 @@ public class Contact {
     public void setImage(int image) {
         this.image = image;
     }
+
 }
