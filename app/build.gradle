@@ -28,6 +28,8 @@ dependencies {
 
     implementation 'com.simplecityapps:recyclerview-fastscroll:1.0.20'
 
+    implementation 'com.shuhart.stickyheader:stickyheader:1.0.5'
+
     testImplementation 'junit:junit:4.12'
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
